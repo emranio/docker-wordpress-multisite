@@ -20,22 +20,22 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'test');
+define('DB_NAME', 'test');
 
 /** Database username */
-define( 'DB_USER', 'root');
+define('DB_USER', 'root');
 
 /** Database password */
-define( 'DB_PASSWORD', 'test');
+define('DB_PASSWORD', 'test');
 
 /** Database hostname */
-define( 'DB_HOST', 'db');
+define('DB_HOST', 'db');
 
 /** Database charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8' );
+define('DB_CHARSET', 'utf8');
 
 /** The database collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
+define('DB_COLLATE', '');
 
 /**#@+
  * Authentication unique keys and salts.
@@ -48,14 +48,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'put your unique phrase here' );
-define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
-define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
-define( 'NONCE_KEY',        'put your unique phrase here' );
-define( 'AUTH_SALT',        'put your unique phrase here' );
-define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
-define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
-define( 'NONCE_SALT',       'put your unique phrase here' );
+define('AUTH_KEY', 'put your unique phrase here');
+define('SECURE_AUTH_KEY', 'put your unique phrase here');
+define('LOGGED_IN_KEY', 'put your unique phrase here');
+define('NONCE_KEY', 'put your unique phrase here');
+define('AUTH_SALT', 'put your unique phrase here');
+define('SECURE_AUTH_SALT', 'put your unique phrase here');
+define('LOGGED_IN_SALT', 'put your unique phrase here');
+define('NONCE_SALT', 'put your unique phrase here');
 
 /**#@-*/
 
@@ -79,74 +79,67 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+define('WP_DEBUG', true);
 
 // If we're behind a proxy server and using HTTPS, we need to alert Wordpress of that fact
 // see also http://codex.wordpress.org/Administration_Over_SSL#Using_a_Reverse_Proxy
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
-	$_SERVER['HTTPS'] = 'on';
+    $_SERVER['HTTPS'] = 'on';
 }
 
 @ini_set('session.cookie_httponly', true);
- @ini_set('session.cookie_secure', true);
- @ini_set('session.use_only_cookies', true);
- define('WP_MEMORY_LIMIT', '256M');
- define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+@ini_set('session.cookie_secure', true);
+@ini_set('session.use_only_cookies', true);
+define('WP_MEMORY_LIMIT', '256M');
+define('WP_MAX_MEMORY_LIMIT', '256M');
 @ini_set('session.cookie_httponly', true);
- @ini_set('session.cookie_secure', true);
- @ini_set('session.use_only_cookies', true);
- define('WP_MEMORY_LIMIT', '256M');
- define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+@ini_set('session.cookie_secure', true);
+@ini_set('session.use_only_cookies', true);
+define('WP_MEMORY_LIMIT', '256M');
+define('WP_MAX_MEMORY_LIMIT', '256M');
 @ini_set('session.cookie_httponly', true);
- @ini_set('session.cookie_secure', true);
- @ini_set('session.use_only_cookies', true);
- define('WP_MEMORY_LIMIT', '256M');
- define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+@ini_set('session.cookie_secure', true);
+@ini_set('session.use_only_cookies', true);
+define('WP_MEMORY_LIMIT', '256M');
+define('WP_MAX_MEMORY_LIMIT', '256M');
 @ini_set('session.cookie_httponly', true);
- @ini_set('session.cookie_secure', true);
- @ini_set('session.use_only_cookies', true);
- define('WP_MEMORY_LIMIT', '256M');
- define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+@ini_set('session.cookie_secure', true);
+@ini_set('session.use_only_cookies', true);
+define('WP_MEMORY_LIMIT', '256M');
+define('WP_MAX_MEMORY_LIMIT', '256M');
 /* Add any custom values between this line and the "stop editing" line. */
 
-
-
 @ini_set('session.cookie_httponly', true);
- @ini_set('session.cookie_secure', true);
- @ini_set('session.use_only_cookies', true);
- define('WP_MEMORY_LIMIT', '256M');
- define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+@ini_set('session.cookie_secure', true);
+@ini_set('session.use_only_cookies', true);
+define('WP_MEMORY_LIMIT', '256M');
+define('WP_MAX_MEMORY_LIMIT', '256M');
 @ini_set('session.cookie_httponly', true);
- @ini_set('session.cookie_secure', true);
- @ini_set('session.use_only_cookies', true);
- define('WP_MEMORY_LIMIT', '256M');
- define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+@ini_set('session.cookie_secure', true);
+@ini_set('session.use_only_cookies', true);
+define('WP_MEMORY_LIMIT', '256M');
+define('WP_MAX_MEMORY_LIMIT', '256M');
 @ini_set('session.cookie_httponly', true);
- @ini_set('session.cookie_secure', true);
- @ini_set('session.use_only_cookies', true);
- define('WP_MEMORY_LIMIT', '256M');
- define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+@ini_set('session.cookie_secure', true);
+@ini_set('session.use_only_cookies', true);
+define('WP_MEMORY_LIMIT', '256M');
+define('WP_MAX_MEMORY_LIMIT', '256M');
 @ini_set('session.cookie_httponly', true);
- @ini_set('session.cookie_secure', true);
- @ini_set('session.use_only_cookies', true);
- define('WP_MEMORY_LIMIT', '256M');
- define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+@ini_set('session.cookie_secure', true);
+@ini_set('session.use_only_cookies', true);
+define('WP_MEMORY_LIMIT', '256M');
+define('WP_MAX_MEMORY_LIMIT', '256M');
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
+if (!defined('ABSPATH')) {
+    define('ABSPATH', __DIR__ . '/');
 }
 
-
-define( 'MULTISITE', true );
-define( 'SUBDOMAIN_INSTALL', false );
-define( 'DOMAIN_CURRENT_SITE', 'localhost' );
-define( 'PATH_CURRENT_SITE', '/' );
-define( 'SITE_ID_CURRENT_SITE', 1 );
-define( 'BLOG_ID_CURRENT_SITE', 1 );
-
-
+define('ADMIN_COOKIE_PATH', '/');
+define('COOKIEPATH', '');
+define('SITECOOKIEPATH', '');
+define('COOKIE_DOMAIN', false);
 
 
 /** Sets up WordPress vars and included files. */

@@ -74,7 +74,8 @@ class Akismet_Admin {
 		if ( get_option( 'Activated_Akismet' ) ) {
 			delete_option( 'Activated_Akismet' );
 			if ( ! headers_sent() ) {
-				wp_redirect( add_query_arg( array( 'page' => 'akismet-key-config', 'view' => 'start' ), class_exists( 'Jetpack' ) ? admin_url( 'admin.php' ) : admin_url( 'options-general.php' ) ) );
+				$admin_url = self::get_page_url( 'init' );
+				wp_redirect( $admin_url );
 			}
 		}
 
@@ -90,10 +91,11 @@ class Akismet_Admin {
 	}
 
 	public static function admin_menu() {
-		if ( class_exists( 'Jetpack' ) )
+		if ( class_exists( 'Jetpack' ) ) {
 			add_action( 'jetpack_admin_menu', array( 'Akismet_Admin', 'load_menu' ) );
-		else
+		} else {
 			self::load_menu();
+		}
 	}
 
 	public static function admin_head() {
@@ -404,7 +406,7 @@ class Akismet_Admin {
 			$classes[] = 'enable-on-load';
 
 			if ( ! Akismet::get_api_key() ) {
-				$link = add_query_arg( array( 'page' => 'akismet-key-config' ), class_exists( 'Jetpack' ) ? admin_url( 'admin.php' ) : admin_url( 'options-general.php' ) );
+				$link = self::get_page_url();
 				$classes[] = 'ajax-disabled';
 			}
 		}
@@ -825,14 +827,15 @@ class Akismet_Admin {
 
 		$args = array( 'page' => 'akismet-key-config' );
 
-		if ( $page == 'stats' )
+		if ( $page == 'stats' ) {
 			$args = array( 'page' => 'akismet-key-config', 'view' => 'stats' );
-		elseif ( $page == 'delete_key' )
+		} elseif ( $page == 'delete_key' ) {
 			$args = array( 'page' => 'akismet-key-config', 'view' => 'start', 'action' => 'delete-key', '_wpnonce' => wp_create_nonce( self::NONCE ) );
+		} elseif ( $page === 'init' ) {
+			$args = array( 'page' => 'akismet-key-config', 'view' => 'start' );
+		}
 
-		$url = add_query_arg( $args, class_exists( 'Jetpack' ) ? admin_url( 'admin.php' ) : admin_url( 'options-general.php' ) );
-
-		return $url;
+		return add_query_arg( $args, menu_page_url( 'akismet-key-config', false ) );
 	}
 	
 	public static function get_akismet_user( $api_key ) {
@@ -1050,10 +1053,6 @@ class Akismet_Admin {
 				
 				$notices[] =  array( 'type' => 'active-notice', 'time_saved' => $time_saved );
 			}
-			
-			if ( !empty( $akismet_user->limit_reached ) && in_array( $akismet_user->limit_reached, array( 'yellow', 'red' ) ) ) {
-				$notices[] = array( 'type' => 'limit-reached', 'level' => $akismet_user->limit_reached );
-			}
 		}
 		
 		if ( !isset( self::$notices['status'] ) && in_array( $akismet_user->status, array( 'cancelled', 'suspended', 'missing', 'no-sub' ) ) ) {
@@ -1082,8 +1081,6 @@ class Akismet_Admin {
 		$notices[] = array( 'type' => 'new-key-invalid' );
 		$notices[] = array( 'type' => 'existing-key-invalid' );
 		$notices[] = array( 'type' => 'new-key-failed' );
-		$notices[] = array( 'type' => 'limit-reached', 'level' => 'yellow' );
-		$notices[] = array( 'type' => 'limit-reached', 'level' => 'red' );
 		$notices[] = array( 'type' => 'usage-limit', 'api_calls' => '15000', 'usage_limit' => '10000', 'upgrade_plan' => 'Enterprise', 'upgrade_url' => 'https://akismet.com/account/' );
 		$notices[] = array( 'type' => 'spam-check-cron-disabled' );
 		*/

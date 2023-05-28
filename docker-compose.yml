@@ -16,6 +16,7 @@ services:
       - WORDPRESS_DB_USER=root
       - WORDPRESS_DB_PASSWORD=test
       - WORDPRESS_LOCAL_DEV=true
+      - WORDPRESS_DEBUG=true
     restart: always
     networks:
       - test-network
