@@ -1,4 +1,4 @@
-# wordpress-phpmyadmin-mariadb on macbook m1
+# wordpress environment on docker with mariadb 
 
 - clone this git repo `git clone git@github.com:emranio/docker-wordpress-multisite.git`. Run the following command to run the wordpress environment on docker
 
