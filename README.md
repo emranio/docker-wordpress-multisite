@@ -27,7 +27,7 @@
       - MYSQL_USER=root
     ```
 
-- If you face `Error establishing a database connection`, delete your `wp-config.php` file and reload.
+- If you face `Error establishing a database connection`, delete your `wp-config.php` file and reload and install it again.
 
 ### Multi site configuration
 
